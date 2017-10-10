@@ -1,14 +1,16 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html>
 <head>    
     
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <title>Visor Participación Pública</title>
+    <title>Visor ParticipaciÃ³n PÃºblica</title>
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script>
         $(document).bind('mobileinit', function () {
             $.mobile.changePage.defaults.changeHash = false;
@@ -17,15 +19,13 @@
         });
     </script>
 
-    <script src="https://code.jquery.com/jquery-1.8.0.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="https://js.arcgis.com/3.20/dijit/themes/claro/claro.css">
     <link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
     <script src="https://js.arcgis.com/3.22compact/init.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script>
 
-        var map, tb, url, coordx, coordy, poligonoConsulta;
+      var map, tb, url, coordx, coordy, poligonoConsulta;
         require([
             "dojo/dom",
             "dojo/dom-style",
@@ -83,29 +83,29 @@
 
                 // variables capa de busqueda del servicio a consultar  ------------------------------------------------------------------------------------------------------------------------------
                 var rutaServicio = "https://idearagon.aragon.es/servicios/rest/services/INAGA/INAGA_Participacion_Ciudadana/MapServer";
-                var tituloVisor = "<center><font color='white'>Localización de expedientes INAGA</br>en plazo de participación pública</font></center>"
+                var tituloVisor = "<center><font color='white'>Localizaciï¿½n de expedientes INAGA</br>en plazo de participaciï¿½n pï¿½blica</font></center>"
                 //var urlDocumentacion = "http://idearagon.aragon.es/datosdescarga/descarga.php?file=medioambiente/inagis_docs/VisorINAGA_Participacion_Publica.html";
                 //dom.byId("documentacion").href = urlDocumentacion;                
                 var numCapaInf = 9;
                 var searchFields = ["SOLICITANTE", "NUMEXP"];
                 var displayField = "SOLICITANTE";
                 var exactMatch = false;
-                var name = "Información Pública (Solicitante,Expediente)";
+                var name = "Informaciï¿½n Pï¿½blica (Solicitante,Expediente)";
                 var infoTemplate = new InfoTemplate("");
-                infoTemplate.setTitle("<b>Tipo Publicación: </b> ${TIPO_PUBLICACION}");
+                infoTemplate.setTitle("<b>Tipo Publicaciï¿½n: </b> ${TIPO_PUBLICACION}");
                 infoTemplate.setContent(getTextContent);                
                 function getTextContent(graphic) {
                     var urlvisor = graphic.attributes.URL_VISOR;
-                    var texto = "</br><b> Nº Expediente: </b> " + graphic.attributes.NUMEXP +
-                        "</br><b> Descripción: </b> " + graphic.attributes.DENOMINACION +
+                    var texto = "</br><b> NÂº Expediente: </b> " + graphic.attributes.NUMEXP +
+                        "</br><b> DescripciÃ³n: </b> " + graphic.attributes.DENOMINACION +
                         "</br><b> Solicitante: </b> " + graphic.attributes.SOLICITANTE +
                         "</br>" +
-                        "</br><b> Tipo Publicación: </b> " + graphic.attributes.TIPO_PUBLICACION +
+                        "</br><b> Tipo PublicaciÃ³n: </b> " + graphic.attributes.TIPO_PUBLICACION +
                         "</br><b> Fecha Inicio: </b> " + new Date(parseInt(graphic.attributes.FINI)).toLocaleDateString() +
                         "</br><b> Fecha Fin: </b> " + new Date(parseInt(graphic.attributes.FFIN)).toLocaleDateString() +
                         "</br>" +
-                        "</br><b> Precisión: </b> " + graphic.attributes.DORIGEN + "<br>" +
-                        "</br><a href= " + graphic.attributes.URL_ENLACE + " target=_blank>Documentación en " + graphic.attributes.TIPO_PUBLICACION; + "</a>"
+                        "</br><b> PrecisiÃ³n: </b> " + graphic.attributes.DORIGEN + "<br>" +
+                        "</br><a href= " + graphic.attributes.URL_ENLACE + " target=_blank>Documentaciï¿½n en " + graphic.attributes.TIPO_PUBLICACION; + "</a>"
                     return texto;
                 }
 
@@ -364,7 +364,7 @@
                         searchFields: searchFields, //["SOLICITANTE","NUMEXP"],
                         displayField: displayField, //"SOLICITANTE",
                         exactMatch: exactMatch, //false,
-                        name: name, //"Resolución Pública (Solicitante,Expediente)",
+                        name: name, //"Resoluciï¿½n Pï¿½blica (Solicitante,Expediente)",
                         outFields: ["*"],
                         placeholder: " ",
                         maxResults: 6,
@@ -379,7 +379,7 @@
                         exactMatch: true,
                         name: "Parcelas Catastrales",
                         outFields: ["*"],
-                        placeholder: "14 primeros dígitos de REFPAR",
+                        placeholder: "14 primeros dï¿½gitos de REFPAR",
                         maxResults: 6,
                         maxSuggestions: 6,
                         enableSuggestions: true,
@@ -666,10 +666,10 @@
                         <div id="legendDiv"></div>
                     </div>
                     <div data-role="collapsible" data-inset="true" data-mini="true" data-iconpos="right" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
-                        <h3>Medición</h3>
+                        <h3>MediciÃ³n</h3>
                         <div id="measurementDiv"></div>
                         <div id="etrs" style="font-size: 12px;text-align: left;vertical-align: middle;"></div>
-                        <button type="button" id="clearGraphicsM"  style="width: 150px;height: 40px;font-size: 10px;text-align: center;vertical-align: middle;position:relative;">Borra medición</button>
+                        <button type="button" id="clearGraphicsM"  style="width: 150px;height: 40px;font-size: 10px;text-align: center;vertical-align: middle;position:relative;">Borra mediciÃ³n</button>
                     </div>
                     <div data-role="collapsible" data-inset="true" data-mini="true" data-iconpos="right" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
                         <h3>Opacidad</h3>
@@ -681,21 +681,21 @@
                     </div>
                     <div data-role="collapsible" data-inset="true" data-mini="true" data-iconpos="right" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
                         <h3>SIG Expedientes INAGA</h3>
-                        <a href="" id="sitar" target="_blank" style="font-size: 12px;">Ver en IDE Aragón</a>
+                        <a href="" id="sitar" target="_blank" style="font-size: 12px;">Ver en IDE AragÃ³n</a>
                         </br><a id="enlaceCapturaCoordenadas" href="" target="_blank" style="font-size: 12px;">Captura Coordenadas</a>
                         </br><a id="label3d" href="" target="_blank" style="font-size:12px">Visor INAGA 3D</a>
                         </br><a id="enlaceParticipacion_Publica" href="" target="_blank" style="font-size: 12px;">Participacion Publica</a>
-                        </br><a id="enlaceResolucionesPublicas" href="" target="_blank" style="font-size: 12px;">Resoluciones Públicas</a>
-                        <!--</br><a href="" id="documentacion" target="_blank" style="font-size: 12px;">Documentación</a>-->
+                        </br><a id="enlaceResolucionesPublicas" href="" target="_blank" style="font-size: 12px;">Resoluciones PÃºblicas</a>
+                        <!--</br><a href="" id="documentacion" target="_blank" style="font-size: 12px;">Documentaciï¿½n</a>-->
                     </div>
                 </div>
                 </br>
                 </br>
-                <a href="#popupBasic" data-rel="popup" data-position-to="window" class="ui-btn ui-icon-info ui-btn-icon-left" data-transition="slideup" style="font-size: 11px;width:300px">Cláusula Legal</a>
+                <a href="#popupBasic" data-rel="popup" data-position-to="window" class="ui-btn ui-icon-info ui-btn-icon-left" data-transition="slideup" style="font-size: 11px;width:300px">Clï¿½usula Legal</a>
                 <div data-role="popup" id="popupBasic">
                     <p>
-                        <b>Cláusula legal:</b>
-                        </br>El contenido de las capas que se ofrecen a través del visor es meramente informativo y carece de efectos vinculantes para la Administración. En cualquier caso, la información ofrecida no podrá ser alegada en procesos contradictorios con la Administración Pública.
+                        <b>ClÃ¡usula legal:</b>
+                        </br>El contenido de las capas que se ofrecen a travÃ©s del visor es meramente informativo y carece de efectos vinculantes para la Administraciï¿½n. En cualquier caso, la informaciÃ³n ofrecida no podrÃ¡ ser alegada en procesos contradictorios con la AdministraciÃ³n PÃºblica.
                     </p>
                 </div>
 
